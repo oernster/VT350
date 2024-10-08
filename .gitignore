@@ -1,3 +1,4 @@
 .git
 printer-*.cfg
-./config/.theme/.git/
+*.pack
+
