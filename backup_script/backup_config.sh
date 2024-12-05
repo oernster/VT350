@@ -1,6 +1,7 @@
 cd
 cd ~/VT350
 git pull
+rm ~/printer_data/config/printer-*.cfg
 cp -r ~/printer_data/config/*.* .
 rm ./printer-*.cfg
 rm ./crowsnest.conf.*
