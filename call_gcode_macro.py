@@ -2,6 +2,7 @@ import requests
 import json
 from datetime import datetime
 
+
 # Configuration
 macro_name = 'PRINT_END_SOUND'
 moonraker_api_url = f'http://0.0.0.0:7125/printer/gcode/script?script={macro_name}'
