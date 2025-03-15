@@ -2,3 +2,4 @@
 printer-*.cfg
 ./config/.theme/.git/objects/pack/pack-*.pack
 ./config/.theme/.git/objects/pack/pack-*.idx
+.moonraker.conf.bkp
