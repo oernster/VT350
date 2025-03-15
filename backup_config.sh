@@ -29,7 +29,6 @@ rsync -av $CONFIG_DIR/configs/general/* configs/general/
 # Remove unnecessary files
 rm ./printer-*.cfg
 rm ./crowsnest.conf.*
-rm -rf $CONFIG_DIR/ShakeTune_results/
 
 # Copy the database file
 cp $DATABASE_DIR/moonraker-sql.db ./database/
