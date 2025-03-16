@@ -1,41 +1,19 @@
-#!/bin/bash
-
-# Define commonly used paths
-REPO_DIR=~/VT350
-CONFIG_DIR=~/printer_data/config
-DATABASE_DIR=~/printer_data/database
-
-# Ensure the database directory exists in VT350
-mkdir -p $REPO_DIR/database
-
-# Enter the repository directory
-cd $REPO_DIR
-
-# Update the repository
+cd
+cd ~/VT350
 git pull
-
-# Copy new configuration files from CONFIG_DIR
-# Using rsync to copy all files and subdirectories from CONFIG_DIR directly into REPO_DIR
-rsync -av --exclude='config_backups' --exclude='.moonraker.conf.bkp' $CONFIG_DIR/ $REPO_DIR/
-
-# Copy only database files into the database subdirectory
-rsync -av $DATABASE_DIR/ $REPO_DIR/database/
-
-# Remove any accidental copy of moonraker-sql.db in the root of VT350
-rm -f $REPO_DIR/moonraker-sql.db
-
-# Ensure Git ignores moonraker-sql.db in the root
-echo "/moonraker-sql.db" >> .gitignore
-git add .gitignore
-
-# Add all changes to git, excluding the unwanted duplicate
+rm ~/printer_data/config/printer-*.cfg
+cp -r ~/printer_data/config/*.* .
+rm ./printer-*.cfg
+rm ./crowsnest.conf.*
+rm ./printer_data/config/ShakeTune_results/vibrations/*.*
+rm ./printer_data/config/ShakeTune_results/input_shaper/*.*
+rm ./printer_data/config/ShakeTune_results/belts/*.*
+rm ./printer_data/config/ShakeTune_results/axes_map/*.*
+cp ~/printer_data/database/moonraker-sql.db ./database/moonraker-sql.db
+rm -rf ShakeTune_results
 git add .
-
-# Commit the changes
-git commit -m "Backup printer configs and ensure moonraker-sql.db is only in database directory"
-
-# Push the changes to the repository
+git commit -m "printer config backup"
 git push
+cd
 
-# Return to the home directory
-cd ~
+
