@@ -1,16 +1,19 @@
-# acryl-fluidd-mainsail-theme
-> A Modern Theme for [Fluidd](https://github.com/fluidd-core/fluidd) AND [Mainsail](https://github.com/mainsail-crew/mainsail)
+# Frosted Gray
+Frosted Gray - a minimalistic fluidd & mainsail theme with a sleek acrylic look
 
-![Screenshot](./screenshot.jpg)
+Modified from [acryl theme for fluidd & mainsail](https://github.com/eliteSchwein/acryl-fluidd-mainsail-theme/) 
+
+***THIS IS A DARK MODE THEME, LIGHT MODE ISNT SUPPORTED! (fluidd)***
 
 ## Installation Mainsail
+
 ```bash
-git clone https://github.com/eliteSchwein/acryl-fluidd-mainsail-theme ~/printer_data/config/.theme
+git clone https://github.com/Xapu1337/frosted-gray-mainsail-theme ~/printer_data/config/.theme
 ```
 
 ## Installation Fluidd
 ```bash
-git clone https://github.com/eliteSchwein/acryl-fluidd-mainsail-theme ~/printer_data/config/.fluidd-theme
+git clone https://github.com/Xapu1337/frosted-gray-mainsail-theme ~/printer_data/config/.fluidd-theme
 ```
 
 ## Update Mainsail
@@ -22,9 +25,14 @@ git -C ~/printer_data/config/.theme pull
 ```bash
 git -C ~/printer_data/config/.fluidd-theme pull
 ```
+# Preview Mainsail
 
-## License
-[MIT License](./LICENSE)
+![Screenshot - Dashboard](screenshot.jpg)
+![Screenshot - Config Editor](screenshot2.jpg)
+![Screenshot - Settings](screenshot3.jpg)
 
-## Credits
-* [steadyjaw](https://github.com/steadyjaw) for the README Base 
+# Preview Fluidd
+
+![Screenshot - Dashboard](screenshotfluidd.png)
+![Screenshot - Config Editor](screenshot2fluidd.png)
+![Screenshot - Settings](screenshot3fluidd.png)
