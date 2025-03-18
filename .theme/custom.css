@@ -1,160 +1,391 @@
-/* .
-This is a dark-mode theme vyper for mainsail
+/**
+
+  █████▒██▀███   ▒█████    ██████ ▄▄▄█████▓▓█████ ▓█████▄      ▄████  ██▀███   ▄▄▄     ▓██   ██▓
+▓██   ▒▓██ ▒ ██▒▒██▒  ██▒▒██    ▒ ▓  ██▒ ▓▒▓█   ▀ ▒██▀ ██▌    ██▒ ▀█▒▓██ ▒ ██▒▒████▄    ▒██  ██▒
+▒████ ░▓██ ░▄█ ▒▒██░  ██▒░ ▓██▄   ▒ ▓██░ ▒░▒███   ░██   █▌   ▒██░▄▄▄░▓██ ░▄█ ▒▒██  ▀█▄   ▒██ ██░
+░▓█▒  ░▒██▀▀█▄  ▒██   ██░  ▒   ██▒░ ▓██▓ ░ ▒▓█  ▄ ░▓█▄   ▌   ░▓█  ██▓▒██▀▀█▄  ░██▄▄▄▄██  ░ ▐██▓░
+░▒█░   ░██▓ ▒██▒░ ████▓▒░▒██████▒▒  ▒██▒ ░ ░▒████▒░▒████▓    ░▒▓███▀▒░██▓ ▒██▒ ▓█   ▓██▒ ░ ██▒▓░
+ ▒ ░   ░ ▒▓ ░▒▓░░ ▒░▒░▒░ ▒ ▒▓▒ ▒ ░  ▒ ░░   ░░ ▒░ ░ ▒▒▓  ▒     ░▒   ▒ ░ ▒▓ ░▒▓░ ▒▒   ▓▒█░  ██▒▒▒ 
+ ░       ░▒ ░ ▒░  ░ ▒ ▒░ ░ ░▒  ░ ░    ░     ░ ░  ░ ░ ▒  ▒      ░   ░   ░▒ ░ ▒░  ▒   ▒▒ ░▓██ ░▒░ 
+ ░ ░     ░░   ░ ░ ░ ░ ▒  ░  ░  ░    ░         ░    ░ ░  ░    ░ ░   ░   ░░   ░   ░   ▒   ▒ ▒ ░░  
+          ░         ░ ░        ░              ░  ░   ░             ░    ░           ░  ░░ ░     
+                                                   ░                                    ░ ░     
+
+Made with ❤️ by Xapu1337, simple refactoring by future gods (AI)
+Based on Acryl theme by eliteSchwein
 */
 
 :root {
-    --Primary:        #282a36;    /*Voron:Black*/
-    --Secondary:      #ff5555;    /*Voron:Red*/
-    --vred:           #ff5555;    /*Voron:Red*/
-    --c_orchid:       #da70d6;    /*Orchid*/
-    --crimson:        crimson;    /*crimson*/
-    --Red:            #ff5555;
-    --Warnings:       #00eafb;
-    --Text:           #ff8c00;
-    --DarkerText:     #dda0dd;
-    --Background:     #44475a;
-    --DarkBackground: #282a36;
-    --Toolbars:       #dda0dd;
-    --Sheets:         #282a36;   
+  --v-accent-base: #6600ff;
+  /**
+  Mainsail doesnt provide accent color setting nor does it automatically create one, so we have to use a custom variable.
+  Use https://htmlcolorcodes.com/color-picker/ (or any hex color picker) to select the right accent color for your primary
+  Be creative! (if not, replace the hex above with "var(--v-primary-base)" to just use your primary color)
+  */
 }
 
-.menu-item-title {
-    color: tomato;
+body {
+  background-color: var(--v-panel-darken1);
+  color: var(--v-secondary-base);
+  margin: 0;
+  min-height: 100vh;
 }
 
-#nav-header .v-toolbar__title {
-    font-size: 24px;
-    vertical-align: middle;
-    color: #00eafb;
-    font-family: monospace;
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEYAAABGCAAAAABURb1YAAAFnklEQVR4AWWXCY4cwXbE6h4JMhCvMPc/ov+3Ox9QsLCGpKlFHILd+UQ559AGDkBSFXWmomonqkL/XuUcIPUcONjHCJyE36KaqNiaRnVCG9TGpgIU9hIfohCBVGj24ammo04lU3Fy0NZDAyZi5AElHjgEGlRbG1WjraIt7TmADQkAaoEHsOXAAaeqat9RVTqjosyEH5W+DQCQt8BzIJMfXJI3e5tGRefSlRn3NrO3scnvNl26FN5RITGNfjm3GM/+FhQgnlQeImC+dEm8rzHVTNGL9EADVsTAIfGJBziRy7RlmcZU1IYpHIj+4JrWym8/XSwzompmFNVOFdTOAAfs61KZ6eXcp57fykQUOxNBmTesz2HpCnCg3UV/bA7VRpWGNqKtrYLTs0ilCjgxiZxjeLC5dDPBFn4Pn2ja6BRUL10DTgET4Focq8rn8casxV4E5tIlZvytqtfivCOKZrqc38G7egnkXecyPZdzubc57VtUnbfL+a0u3b1N3d9Mci7cKocHoh3xihLQ6fXUlgTOOfVkXSUFINoWHhqxE23RTmCqtoEJaITkIrUCkU9fnqpqm+40VSXS3CLaSzfGBb4rPuOSfN0ylLve6/jpcrbL2dTlnOdv5AamKjLvLN1XruMNS/cul/hx8twKpKYRaE2DOp8+c+lW7uVXVQ7Vx0x1G3HXjNocsHCac7NbWc6egwJVHu2kRTVNC2pqv2U4XNsv5/yWJlV9+NJ1C7xluInlcr7rK+Kg+qy7onQqgnbi7UHcS3qXjdw3bO5tumycYlVssMI5EXXpRnatPK362KodtVU60cm+eQT10sVLFwJYlVaf7UGSoi5dQF3DvnTX3UvXTPO8quKH7jsXhm/PxfKWZXqBM5sS33kmKtC31Q05fI095i5IPpyzRXqSy1Sr17p1F7NE8vMtnNbLpVVtk8c0OrfF0sKxHnIpYgHW4puMomTz8mgmrSjpvrxhX97l7LqLpl7bW9BH9/MNzF8XwRqL8/m7c30eFYV5VX3QTquK06XbLt16F4ks+8Z9m6gPtpcuk3OvibCekng4lzMHi9MoqZmKj9tdbQCbc7bcEA+oEJduRNNL1waf1tuI9MDBUK8t3k9uFz3rrqadO9Ln9TL/ezlwDvky3TW7ZmXfpc77TN0yhOXnP939LvVDV9s+tgLTm0TqYd1lea3PRFuVjLa562HdPbCfascGrvO3DMeIATVqVRO8vfHrbupdfo1dzlXUdkVLZsS1mLPG3rWcl+4B1l1537h0VXzU1tyLG7cCu+LSrSqo06hocy3WCcil65qHDbuEYzQN2HpT3jFt9LEFvHTP1nxbXOEkbhkKmd+6BTfVZ/I143z/Fyz6Za92o0I7I6gzfeYAHPwy/Rb43L9TLtMt8CtwW1xvQvbR1g9n7qJRNN1kdxcdH7cM58Szxq679MdLOhE72t6VNEpHHkzwRyjBcGth+dE99pIkVbWaEWmvnQ8Yl7Mp59zpRWXdNo6odrO754Zzvxf/010nP7onb1TR+bgbVPB9PcADJvH/043Kvk0UzLRxQ6UiaeTAcyxYl2lyrrvZv8v2wE7U1uVcST0821jJeIDKWuyxiqnuko7q3+zJYXJ46nV3D67EyL+lQ9F2qkr+3kUafQpwYE8T329p6y7OX1TF97fQv/c+l87zj7Hsgpig4qRLd9fMPs74rLGyCzRbhmVqpy7nqvPmTD1gvKe7b2U8u1QzmtuDuEtbgT3c8QBJveo6cueFkUwv59nVmfFw1jl4/unuOT9qERV76ers8n23z/c8/Xy7a4lwwLplmGusbRp33Up13+ZDN3KPxNVMhY62vUQyRTse6+cKHtZYjIfDh260Cjbb3Vy6R8H8SMBzqSwrsB1UTacoknlnOb8V4JD9Njfpwz/fHjpBUeevcAtcl65sqXPX9D87RUTLc/dfOgAAAABJRU5ErkJggg==);
+  background-repeat: repeat;
+  background-size: auto;
+  background-position: center;
+  filter: contrast(1.2) brightness(0.8);
+  z-index: -1;
+}
+
+.container {
+  position: relative;
+  overflow: hidden;
+}
+
+#page-container {
+  max-width: 100% !important;
+}
+
+.v-application .warning--text {
+  color: var(--v-error-base) !important;
+  caret-color: var(--v-error-base) !important;
+}
+
+.v-btn.error {
+  background-color: transparent;
+  border: none !important;
+  color: var(--v-accent-base) !important;
 }
 
 .v-application .warning {
-    background-color: var(--vred) !important;
-    border-color: var(--vred);
+    background-color: var(--v-accent-base) !important;
+    border-color: var(--v-accent-base) !important;
+}
+.v-btn.error .v-icon__svg {
+  fill: var(--v-accent-base);
 }
 
-.v-application .primary {
-    background-color: var(--c_grey) !important;
-    border-color: var(--vred) !important;
+.theme--dark.v-btn.v-btn--has-bg {
+    background-color: rgba(15, 15, 15, .64);
 }
 
-.v-application .success--text {
-    color: var(--vred) !important;
-    caret-color: var(--vred) !important;
+.theme--dark.v-data-table>.v-data-table__wrapper>table>tbody>tr:hover:not(.v-data-table__expanded__content):not(.v-data-table__empty-wrapper) {
+  background: var(--v-panel-darken3);
 }
 
-.v-application .primary--text {
-    color: var(--vred) !important;
-    caret-color: var(--vred) !important;
+
+.theme--dark.v-sheet {
+  background-color: rgba(0, 0, 0, 0.44) !important;
+  backdrop-filter: blur(10px);
+  border: none !important;
+  box-shadow: none !important;
 }
+
+.theme--dark.v-application,
+.theme--dark.v-navigation-drawer,
+.v-navigation-drawer__image>.v-image>.v-image__image.v-image__image--cover {
+  background: transparent;
+  background-image: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.v-navigation-drawer__border {
+  width: 0;
+}
+
+.active-nav-item[data-v-99ab1bec] {
+  position: relative;
+  border-right: none;
+  overflow: hidden;
+  border-bottom: none;
+  width: 100%;
+  /* Adjust this width as needed */
+  margin: auto;
+  background: linear-gradient(var(--v-primary-base), var(--v-primary-base)) bottom no-repeat;
+  background-size: 100% 2px;
+  animation: seeker .3s ease-in-out;
+}
+
+@keyframes seeker {
+  0% {
+    background-size: 0% 2px
+  }
+
+  100% {
+    background-size: 100% 2px;
+  }
+}
+
+.v-list-item--link:before {
+  background-color: transparent;
+  display: none;
+  transition: .3s cubic-bezier(.25, .8, .5, 1)
+}
+
+.theme--dark.v-list-item:not(.v-list-item--active):not(.v-list-item--disabled) {
+  color: var(--v-panel-lighten4)
+}
+
+.theme--dark.v-list-item--active:hover:before,
+.theme--dark.v-list-item--active:before {
+  opacity: 1;
+}
+
+
+.theme--dark.v-list-item:not(.v-list-item--disabled) .v-list-item__subtitle,
+.theme--dark.v-list-item:not(.v-list-item--disabled) .v-list-item__action-text {
+  color: #ffffffb3
+}
+
+
+.theme--dark.v-app-bar.v-toolbar.v-sheet {
+  background-color: rgba(0, 0, 0, 0.32) !important;
+  backdrop-filter: blur(10px);
+}
+
+.theme--dark.v-navigation-drawer,
+.v-color-picker__controls {
+  background: rgba(0, 0, 0, 0.32);
+  backdrop-filter: blur(10px);
+}
+
+.v-application .panel {
+  background-color: rgba(0, 0, 0, 0.692) !important;
+  backdrop-filter: blur(10px);
+  box-shadow: none !important;
+  border: none;
+}
+
+.v-application .panel .theme--dark.v-toolbar.v-sheet,
+.theme--dark.v-data-table,
+.theme--dark.v-tabs>.v-tabs-bar,
+.theme--dark.v-tabs-items,
+.v-sheet.v-list,
+.settings-tabs .theme--dark.v-sheet,
+.filesJobqueue.theme--dark.v-sheet,
+.v-card>*:first-child:not(.v-btn):not(.v-chip):not(.v-avatar),
+.v-card>.v-card__progress+*:not(.v-btn):not(.v-chip):not(.v-avatar),
+.filesGcodeCard.theme--dark.v-sheet,
+.cm-gutters,
+.cm-editor {
+  backdrop-filter: blur(0px);
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.v-input__slot {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.theme--dark.v-data-table>.v-data-table__wrapper>table>tbody>tr:not(:last-child)>td:not(.v-data-table__mobile-row),
+.theme--dark.v-data-table>.v-data-table__wrapper>table>tbody>tr:not(:last-child)>th:not(.v-data-table__mobile-row),
+.theme--dark.v-data-table>.v-data-table__wrapper>table>thead>tr:last-child>th,
+.theme--dark.v-divider,
+.consoleTableRow.default+.consoleTableRow .col,
+.theme--dark.v-data-table .v-data-footer,
+.consoleTable[data-v-3946c1f9],
+.echarts-tooltip .py-1,
+.v-btn--outlined {
+  border: none !important;
+}
+
+.cm-gutter {
+  background-color: rgba(0, 0, 0, 0.43) !important;
+}
+
+.echarts-tooltip {
+  background-color: rgba(0, 0, 0, 0.43) !important;
+  backdrop-filter: blur(10px);
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.v-menu__content {
+  border-radius: 15px;
+  background-color: rgba(0, 0, 0, 0.85) !important;
+  backdrop-filter: blur(10px);
+}
+
+
+.v-application .grey.darken-3.v-btn,
+.v-btn,
+.v-btn-toggle {
+  box-shadow: none !important;
+  background-color: transparent;
+}
+
+.v-progress-circular__underlay {
+  stroke: rgba(0, 0, 0, 0.55) !important;
+}
+
 
 .v-application a {
-    color: var(--vred);
+  color: var(--v-anchor-base);
+  font-weight: bolder
 }
 
- .v-btn:not(.v-btn--outlined).warning {
-    color: var(--c_grey) !important;
+.v-application .info--text {
+    color: var(--v-accent-base) !important;
+    caret-color: var(--v-accent-lighten1) !important;
 }
 
-.v-btn:not(.v-btn--outlined).accent, .v-btn:not(.v-btn--outlined).error, .v-btn:not(.v-btn--outlined).info, .v-btn:not(.v-btn--outlined).primary, .v-btn:not(.v-btn--outlined).secondary, .v-btn:not(.v-btn--outlined).success {
-    color: #f8f8f2 !important;
+
+.webcamImage {
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background-color: transparent !important;
+  overflow: hidden;
 }
 
-.v-application .text-body-2, .v-application .text-button {
-    color: var(--vred);
+.webcamFpsOutput {
+  bottom: 6px !important;
+  right: 6px !important;
+  background-color: rgba(0, 0, 0, 0.33) !important;
+  backdrop-filter: blur(10px);
+  border-radius: 8px;
+  border-top-left-radius: 8px;
+  margin-bottom: 10px;
 }
 
-.v-progress-circular__overlay .v-card__text {
-    stroke: var(--vred) !important;
+div[data-v-11632d50] {
+  border-radius: 0 0 15px 15px !important;
+  overflow: hidden;
 }
 
-.v-slider__track-fill.primary {
-    background-color: var(--vred) !important;
-    border-color: var(--vred) !important;
+.v-dialog,
+.v-sheet.v-card,
+.v-tooltip__content.menuable__content__active {
+  border: none;
+  border-radius: 15px !important;
 }
 
-.v-slider__thumb.primary {
-    background-color: var(--vred) !important;
-    border-color: var(--vred) !important;
+.v-dialog--fullscreen .v-sheet.v-card {
+  border-radius: 0 !important;
 }
 
-/*
-    CHANGE content of icons 
-    Material Desgin Icons can be found on https://pictogrammers.github.io/@mdi/font/5.2.45/
-*/
-
-/* "Cog"/Gearwheel to Wrench */
-.mdi-cog:before {
-    content: "\F05B7";
+svg a[data-v-5c71071d] {
+  stroke: none !important;
 }
 
-/* Heatbed to Campfire */
-.mdi-radiator-disabled:before {
-    content: "\F0238";
+x-vue-echarts text {
+  fill-opacity: 0.75 !important;
 }
 
-/* Heatbed to Campfire */
-.mdi-radiator:before {
-    content: "\F0238";
+.icon-rotate {
+  animation-duration: 1.75s !important;
 }
 
-/* Thermometer to Temp Chart */
-.mdi-thermometer-lines:before {
-    content: "\F0FA7";
+.v-expansion-panel {
+  background-color: rgba(0, 0, 0, 0.24) !important;
+  backdrop-filter: blur(10px);
+  border: none !important;
+  box-shadow: none !important;
+  border-radius: 15px;
 }
 
-/* Controls to Camera Control Slider */
-.mdi-gamepad:before {
-    content: "\F0B69";
+.filesystem-wrapper,
+.console-wrapper {
+  background-color: transparent !important;
+  backdrop-filter: none;
 }
 
-/* Code-Tags to Keyboard */
-.mdi-code-tags:before {
-    content: "\F0313";
+.file-system .v-toolbar,
+.footer {
+  background-color: transparent !important;
+  backdrop-filter: none !important;
 }
 
-/* Dipswitch to Tune */
-.mdi-dip-switch:before {
-    content: "\F062E";
+.console-wrapper .secondary--text,
+.footer .secondary--text {
+  color: var(--v-secondary-base) !important;
 }
 
-/* Home to Home Group */
-.mdi-home:before {
-    content: "\F0DD4";
+.container[data-v-bd286738] {
+  border: none !important;
 }
 
-/* Arrow-collapse vertical to single bar collapse */
-.mdi-arrow-collapse-vertical:before {
-    content: "\F0622"
+
+.v-btn:hover,
+.v-btn:focus {
+  background-color: rgba(0, 0, 0, 0.33);
 }
 
-/* Send arrow to telegram arrow */
-.mdi-send:before {
-    content: "\F0501"
+.v-chip {
+  background-color: var(--v-accent-base) !important;
 }
 
-/* console to boxed console */
-.mdi-console-line:before {
-    content: "\F018D"
+.menuable__content__active {
+  background: #0808088c !important;
+  border: 1px solid rgba(255, 255, 255, .25);
 }
 
-/* "Cog"/Gearwheel to Wrench */
-.mdi-wrench:before {
-    content: "\F0493";
+.v-navigation-drawer {
+  background-color: #0000006e !important;
+  border: none !important;
+  backdrop-filter: blur(10px);
 }
 
-/* Dashboard Monitor to Dashboard window */
-.mdi-monitor-dashboard:before {
-    content: "\F0A1D";
+.v-navigation-drawer .v-list-item--active {
+  background-color: rgba(8, 8, 8, 0.541) !important;
 }
 
-/* History to Profile History */
-.mdi-history:before {
-    content: "\F0B56";
+.v-navigation-drawer .v-list-item:hover {
+  background-color: rgba(02, 02, 02, .22) !important;
 }
 
-/* Printer Dashboard to 3d Printer */
-.mdi-view-dashboard-outline:before {
-    content: "\F042B";
+.toolbar-logo {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.theme--dark.v-data-table>.v-data-table__wrapper>table>tbody>tr:hover:not(.v-data-table__expanded__content):not(.v-data-table__empty-wrapper) {
+  background-color: var(--v-panel-darken3) !important;
+  border-radius: 15px !important;
+  backdrop-filter: blur(10px);
+}
+
+.v-data-table>.v-data-table__wrapper>table>tbody>tr:not(:last-child)>td:first-child,
+.v-data-table>.v-data-table__wrapper>table>tbody>tr:not(:last-child)>th:first-child {
+  border-bottom-left-radius: 15px !important;
+  border-top-left-radius: 15px !important;
+}
+
+.v-data-table>.v-data-table__wrapper>table>tbody>tr:not(:last-child)>td:last-child,
+.v-data-table>.v-data-table__wrapper>table>tbody>tr:not(:last-child)>th:last-child {
+  border-bottom-right-radius: 15px !important;
+  border-top-right-radius: 15px !important;
+}
+
+.file-system .v-data-table tr>td.actions div,
+.file-system .v-data-table tr>td.actions div:before {
+  background: transparent;
+  border-bottom-right-radius: 15px !important;
+  border-top-right-radius: 15px !important;
+}
+
+svg g.home_button[data-v-7e121d54],
+svg a#home_all_center[data-v-7e121d54],
+svg a#tilt_adjust.warning[data-v-7e121d54],
+svg a#stepper_off.warning[data-v-7e121d54] {
+  fill: var(--v-error-base);
+}
+
+.dragable-item[data-v-50fe7cb0],
+.dragable-item[data-v-2ba4ce8c] {
+  background-color: var(--v-panel-darken1) !important;
+  border-radius: 20px;
+  padding: 0px 20px;
 }
