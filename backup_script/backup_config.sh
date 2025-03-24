@@ -31,4 +31,4 @@ git commit -m "Backup printer configs"
 git push
 
 # Return to the home directory
-cd ~
+cd
