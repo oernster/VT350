@@ -1,2 +1,2 @@
 #!/bin/sh
-aplay /home/pi/printer_data/config/audio/filament_runout.wav
+aplay /home/oliver/printer_data/config/audio/filament_runout.wav

@@ -1,3 +1,2 @@
 #!/bin/sh
-aplay /home/pi/printer_data/config/audio/printer_startup.wav
-
+aplay /home/oliver/printer_data/config/audio/printer_startup.wav
